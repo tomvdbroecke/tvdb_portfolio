@@ -19,12 +19,10 @@ export default function Root({ children }) {
                 <meta name="description" content="A portfolio website for Tom van den Broecke."/>
                 <link rel="icon" type="image/x-icon" href="/favicon.ico"></link>
             </head>
-            <body className={inter.className}>
-                <div className="overflow-hidden">
-                    <InitialLoader />
-                    <div className='absolute z-40 max-w w-full h-[100dvh] antialiased'>{children}</div>
-                    <Galaxy />
-                </div>
+            <body className={`overflow-hidden ${inter.className}`}>
+                <Galaxy />
+                <div>{children}</div>
+                <InitialLoader />
             </body>
         </html>
     )

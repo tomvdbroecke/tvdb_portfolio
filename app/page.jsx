@@ -11,8 +11,7 @@ export default function Home() {
     // Initialize AOS
     useEffect(() => {
         AOS.init()
-        AOS.refresh()
-    })
+    }, [])
 
     // Return homepage
     return (

@@ -71,7 +71,7 @@ export default function Galaxy() {
     }, [ticker])
 
     // Return the canvas
-    return (<canvas className="absolute" id="GalaxyCanvas" />)
+    return (<canvas className="absolute top-0 z-0" id="GalaxyCanvas" />)
 }
 
 // Animation ease function
