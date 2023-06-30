@@ -7,25 +7,8 @@ html, body {
     color: #edfbff;
 }
 
-/* SLIDE */
-.slide::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 130%;
-    height: 56px;
-    background-color: rgba(255,255, 255, 20%);
-    transform: translate(-110%, 0);
-    transition: 0.3s;
-}
-
-.slide:hover::before {
-    transform: translate(-5%, 0);
-}
-
-/* BUTTON */
-button {
+/* .Navigation Button */
+.navButton {
     position: relative;
     background: none;
     border: none;
@@ -34,15 +17,14 @@ button {
     padding: 0;
     box-sizing: content-box;
     border: 1px solid transparent;
-    transition: 0.1s all;
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-button:active {
+.navButton:active, .navButton.selected {
     background:rgba(255,255, 255, 20%);
 }
 
-button::before, button::after, span::before, span::after {
+.navButton::before, .navButton::after, span::before, span::after {
     display: block;
     content: "";
     width: 12px;
@@ -50,15 +32,15 @@ button::before, button::after, span::before, span::after {
     position: absolute;
 }
 
-button::before {
-    top: -10px;
-    left: -10px;
+.navButton::before {
+    top: 4px;
+    left: 4px;
     border-top: 1px solid #edfbff;
     border-left: 1px solid #edfbff;
-    border-color: transparent;
+    border-color: #edfbff;
     transition: 0.3s all;
 }
-button::after {
+.navButton::after {
     top: -10px;
     right: -10px;
     border-top: 1px solid #edfbff;
@@ -83,26 +65,89 @@ span::after {
     transition: 0.3s all;
 }
 
-button:hover::before {
+.navButton:hover::before, .navButton.selected::before {
     top: 4px;
     left: 4px;
     border-color: #edfbff;
 }
 
-button:hover::after {
+.navButton:hover::after, .navButton.selected::after {
     top: 4px;
     right: 4px;
     border-color: #edfbff;
 }
 
-button:hover span::before {
+.navButton:hover span::before, .navButton.selected span::before {
     bottom: 4px;
     left: 4px;
     border-color: #edfbff;
 }
 
-button:hover span::after {
+.navButton:hover span::after, .navButton.selected span::after {
     bottom: 4px;
     right: 4px;
     border-color: #edfbff;
+}
+
+/* LOADER */
+.loader {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.loader div {
+    position: absolute;
+    top: 33px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #edfbff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.loader div:nth-child(1) {
+    left: 8px;
+    animation: loader1 0.6s infinite;
+}
+
+.loader div:nth-child(2) {
+    left: 8px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(3) {
+    left: 32px;
+    animation: loader2 0.6s infinite;
+}
+
+.loader div:nth-child(4) {
+    left: 56px;
+    animation: loader3 0.6s infinite;
+}
+
+@keyframes loader1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes loader3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes loader2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
 }

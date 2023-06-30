@@ -5,9 +5,7 @@ import { useEffect, useState } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-// TODO: Make background skybox seamless?
-// TODO: Save X amount of geometry array points on galaxyScene
-// TODO: Somehow lock camera to chosen state star
+// TODO: Cleanup
 
 // Galaxy component
 export default function Galaxy(props) {
@@ -168,12 +166,6 @@ const animate = (galaxyScene, ticker, setTicker, params, targetCameraPosition, t
 
     // Update controls
     galaxyScene.controls.update()
-
-    // Test something
-    /*
-    const testPos = galaxyScene.geometry.attributes.position.array
-    setTargetCameraTargetPosition({ x: testPos[0], y: testPos[1], z: testPos[2] })
-    */
 
     // Tick for next animation frame
     setTimeout(() => {

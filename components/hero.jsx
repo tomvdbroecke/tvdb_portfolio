@@ -12,7 +12,7 @@ export default function Hero(props) {
     const [firstLoad, setFirstLoad] = useState(true)
     const [image, setImage] = useState(' opacity-0 mt-20')
 
-    // When component is mounted, and on currentPage change
+    // When component is mounted, and on pathname change
     useEffect(() => {
         if (firstLoad) {
             if (props.pathname == '/') {

@@ -3,7 +3,6 @@
 // Imports
 import './globals.css'
 import { Inter } from 'next/font/google'
-import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Galaxy from "@/components/galaxy"
 import InitialLoader from '@/components/initialLoader'
@@ -19,11 +18,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Root({ children }) {
     // States
     const pathname = usePathname()
-
-    // When component is mounted, and on path change
-    useEffect(() => {
-        console.log(pathname)
-    }, [pathname])
     
     // Return root layout
     return (

@@ -15,6 +15,8 @@ export default function InitialLoader(props) {
 
     // Return loader component || #000308
     return (
-        <div className={`max-w w-full h-[100dvh] bg-[#000712] flex items-center justify-center absolute pointer-events-none top-0 z-50 duration-1000 transition-all${initialLoadFinished ? ' opacity-0' : ' opacity-100'}`}></div>
+        <div className={`max-w w-full h-[100dvh] bg-[#000712] flex items-center justify-center absolute pointer-events-none top-0 z-50 duration-1000 transition-all${initialLoadFinished ? ' opacity-0' : ' opacity-100'}`}>
+            <div class={`loader transition-all duration-300${initialLoadFinished ? ' opacity-0' : ' opacity-100'}`}><div></div><div></div><div></div><div></div></div>
+        </div>
     )
 }
