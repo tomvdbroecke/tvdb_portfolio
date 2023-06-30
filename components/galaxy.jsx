@@ -10,7 +10,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 // TODO: Somehow lock camera to chosen state star
 
 // Galaxy component
-export default function Galaxy() {
+export default function Galaxy(props) {
     // States
     const [initialized, setInitialized] = useState(false)
     const [targetCameraPosition, setTargetCameraPosition] = useState({ x: 8, y: 4, z: 8})
@@ -40,24 +40,11 @@ export default function Galaxy() {
             })
             setTargetCameraTargetPosition({
                 x: 0,
-                y: 3,
+                y: 3.5,
                 z: 0
             })
-            /*
-            setTimeout(() => {
-                setTargetCameraPosition({
-                    x: 3,
-                    y: 3,
-                    z: 3
-                })
-                setTargetCameraTargetPosition({
-                    x: 0,
-                    y: 0,
-                    z: 0
-                })
-            }, 3000)
-            */
         }
+
         // On every tick, animate
         if (galaxyScene) animate(
             galaxyScene,
@@ -68,6 +55,34 @@ export default function Galaxy() {
             targetCameraTargetPosition,
             setTargetCameraTargetPosition
         )
+
+        // If on any other page than homepage, zoom into galaxy
+        if (props.pathname !== '/') {
+            setTargetCameraPosition({
+                x: 3.5,
+                y: 3.5,
+                z: 3.5
+            })
+            setTargetCameraTargetPosition({
+                x: 0,
+                y: 0,
+                z: 0
+            })
+        }
+
+        // If on homepage, watch galaxy from afar
+        if (props.pathname == '/') {
+            setTargetCameraPosition({
+                x: 8,
+                y: 7,
+                z: 8
+            })
+            setTargetCameraTargetPosition({
+                x: 0,
+                y: 3.5,
+                z: 0
+            })
+        }
     }, [ticker])
 
     // Return the canvas
