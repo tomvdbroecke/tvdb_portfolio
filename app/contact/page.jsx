@@ -3,6 +3,8 @@
 // Imports
 import { useEffect, useState } from "react"
 
+// TODO: Make page
+
 // Contact page
 export default function Contact() {
     // States

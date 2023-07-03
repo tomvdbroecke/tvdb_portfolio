@@ -171,29 +171,29 @@ html, body {
 }
 
 .page-bg::before {
-    top: 4px;
-    left: 4px;
+    top: 5px;
+    left: 5px;
     border-top: 1px solid #edfbff;
     border-left: 1px solid #edfbff;
     border-color: #edfbff;
 }
 .page-bg::after {
-    top: 4px;
-    right: 4px;
+    top: 5px;
+    right: 5px;
     border-top: 1px solid #edfbff;
     border-right: 1px solid #edfbff;
     border-color: #edfbff;
 }
 .page-bg span::before {
-    bottom: 4px;
-    left: 4px;
+    bottom: 5px;
+    left: 5px;
     border-bottom: 1px solid #edfbff;
     border-left: 1px solid #edfbff;
     border-color: #edfbff;
 }
 .page-bg span::after {
-    bottom: 4px;
-    right: 4px;
+    bottom: 5px;
+    right: 5px;
     border-bottom: 1px solid #edfbff;
     border-right: 1px solid #edfbff;
     border-color: #edfbff;
