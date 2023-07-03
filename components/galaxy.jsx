@@ -26,9 +26,6 @@ export default function Galaxy(props) {
     // Initialize when component is mounted
     useEffect(() => {
         // Initialize galaxy, and initialize animation
-        // TODO:    Make 2 more states for start distance between target camera and target camera target
-        //          Then when starting animation, calculate the starting distance, and use this as "max distance" in the anim step calculation
-        // CAMERA ZOOM MODE: { 3, 3, 3 }
         if (!initialized) {
             initializeGalaxyScene(setInitialized, setGalaxyScene, setTicker)
             setTargetCameraPosition({
@@ -63,7 +60,7 @@ export default function Galaxy(props) {
             })
             setTargetCameraTargetPosition({
                 x: 0,
-                y: 0,
+                y: 0.5,
                 z: 0
             })
         }

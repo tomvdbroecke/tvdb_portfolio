@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Root({ children }) {
     // States
     const pathname = usePathname()
-    
+
     // Return root layout
     return (
         <html lang="en">
@@ -31,7 +31,7 @@ export default function Root({ children }) {
                 <Galaxy {...{ pathname }} />
                 <Hero {...{ pathname }} />
                 <Navigation {...{ pathname }} />
-                <div className='relative z-10'>{children}</div>
+                {children}
                 <InitialLoader />
             </body>
         </html>

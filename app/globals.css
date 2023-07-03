@@ -8,6 +8,14 @@ html, body {
 }
 
 /* .Navigation Button */
+.navButtonLink:first-child {
+    margin-left: 0px;
+}
+
+.navButtonLink:last-child {
+    margin-right: 0px;
+}
+
 .navButton {
     position: relative;
     background: none;
@@ -17,14 +25,15 @@ html, body {
     padding: 0;
     box-sizing: content-box;
     border: 1px solid transparent;
+    transition: 0.2s all;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .navButton:active, .navButton.selected {
-    background:rgba(255,255, 255, 20%);
+    background: rgba(255, 255, 255, 20%)
 }
 
-.navButton::before, .navButton::after, span::before, span::after {
+.navButton::before, .navButton::after, .navButton span::before, .navButton span::after {
     display: block;
     content: "";
     width: 12px;
@@ -48,7 +57,7 @@ html, body {
     border-color: transparent;
     transition: 0.3s all;
 }
-span::before {
+.navButton span::before {
     bottom: -10px;
     left: -10px;
     border-bottom: 1px solid #edfbff;
@@ -56,7 +65,7 @@ span::before {
     border-color: transparent;
     transition: 0.3s all;
 }
-span::after {
+.navButton span::after {
     bottom: -10px;
     right: -10px;
     border-bottom: 1px solid #edfbff;
@@ -150,4 +159,42 @@ span::after {
     100% {
         transform: translate(24px, 0);
     }
+}
+
+/* PAGE BACKGROUND */
+.page-bg::before, .page-bg::after, .page-bg span::before, .page-bg span::after {
+    display: block;
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+}
+
+.page-bg::before {
+    top: 4px;
+    left: 4px;
+    border-top: 1px solid #edfbff;
+    border-left: 1px solid #edfbff;
+    border-color: #edfbff;
+}
+.page-bg::after {
+    top: 4px;
+    right: 4px;
+    border-top: 1px solid #edfbff;
+    border-right: 1px solid #edfbff;
+    border-color: #edfbff;
+}
+.page-bg span::before {
+    bottom: 4px;
+    left: 4px;
+    border-bottom: 1px solid #edfbff;
+    border-left: 1px solid #edfbff;
+    border-color: #edfbff;
+}
+.page-bg span::after {
+    bottom: 4px;
+    right: 4px;
+    border-bottom: 1px solid #edfbff;
+    border-right: 1px solid #edfbff;
+    border-color: #edfbff;
 }

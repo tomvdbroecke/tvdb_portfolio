@@ -21,7 +21,7 @@ export default function Navigation(props) {
             } else {
                 setTimeout(() => {
                     setNavbar(' opacity-100 mt-0')
-                }, 600)
+                }, 100)
             }
             setFirstLoad(false)
         } else {
@@ -37,7 +37,7 @@ export default function Navigation(props) {
 
     // Return navigation component
     return (
-        <div className={`absolute z-40 w-full flex items-center justify-center transition-all duration-700 top-2${navbar}`}>
+        <div className={`absolute z-20 w-full flex items-center justify-center transition-all duration-700 top-0 lg:top-2${navbar}`}>
             <div className='max-w-screen-lg w-full flex items-center justify-center'>
                 <NavigationButton name="About" setNavbar={setNavbar} {...{ selectedPage, setSelectedPage }} {...props} />
                 <NavigationButton name="Projects" setNavbar={setNavbar} {...{ selectedPage, setSelectedPage }}  {...props} />
