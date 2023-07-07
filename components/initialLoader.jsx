@@ -9,7 +9,7 @@ export default function InitialLoader(props) {
     const [initialLoadFinished, setInitialLoadFinished] = useState(false)
 
     // When component is mounted
-    useEffect((setInitialLoadFinished) => {
+    useEffect(() => {
         setInitialLoadFinished(true)
     })
 

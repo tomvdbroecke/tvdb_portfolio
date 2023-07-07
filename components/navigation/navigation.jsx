@@ -13,7 +13,7 @@ export default function Navigation(props) {
     const [navbarCheckbox, setNavbarCheckbox] = useState(false)
 
     // When component is mounted, and on pathname change
-    useEffect((firstLoad) => {
+    useEffect(() => {
         if (firstLoad) {
             if (props.pathname == '/') {
                 setTimeout(() => {

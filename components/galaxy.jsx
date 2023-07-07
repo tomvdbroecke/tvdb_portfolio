@@ -23,7 +23,7 @@ export default function Galaxy(props) {
     }
 
     // Initialize when component is mounted
-    useEffect((animationParams, galaxyScene, initialized, props, targetCameraPosition, targetCameraTargetPosition) => {
+    useEffect(() => {
         // Initialize galaxy, and initialize animation
         if (!initialized) {
             initializeGalaxyScene(setInitialized, setGalaxyScene, setTicker)
