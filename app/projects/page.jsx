@@ -17,7 +17,7 @@ export default function Projects() {
                 <a className="float-right m-4 hover:text-gray-600 transition-all duration-100" href="https://github.com/tomvdbroecke" target="_blank">Github</a>
             </div>
             <div className="text-lg px-4">
-                <p className="mb-2">Here are some projects I've completed over the past couple of years.</p>
+                <p className="mb-2">Here are some projects I&apos;ve completed over the past couple of years.</p>
             </div>
             <div className="p-4">
                 <a href="https://omdc.com" target="_blank">
