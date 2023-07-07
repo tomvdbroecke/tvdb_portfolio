@@ -8,7 +8,7 @@ import NavigationButton from './navigationButton'
 export default function Navigation(props) {
     // States
     const [firstLoad, setFirstLoad] = useState(true)
-    const [navbar, setNavbar] = useState(props.pathname == '/' ? ' opacity-0 mt-[40dvh]' : ' opacity-0 mt-4')
+    const [navbar, setNavbar] = useState(props.pathname == '/' ? ' opacity-0 mt-[42dvh]' : ' opacity-0 mt-4')
     const [selectedPage, setSelectedPage] = useState(props.pathname)
     const [navbarCheckbox, setNavbarCheckbox] = useState(false)
 
