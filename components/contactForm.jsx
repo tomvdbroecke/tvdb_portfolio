@@ -82,7 +82,7 @@ export default function ContactForm() {
 
                 <div className="overflow-hidden flex">
                     <button  className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
-                    <div className={`px-4 mt-2 mr-2 ${sentNotification.includes('could not') ? 'bg-red-300/20 text-red-300' : 'bg-green-300/20 text-green-300'} transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
+                    <div className={`px-4 mt-2 mr-2 ${sentNotification && sentNotification.includes('could not') ? 'bg-red-300/20 text-red-300' : 'bg-green-300/20 text-green-300'} transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
                         {sentNotification}
                     </div>
                 </div>
