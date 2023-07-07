@@ -18,7 +18,9 @@ export default function PageFrame({ children }) {
                 setPage(' opacity-100 mt-0')
             }, 300)
         } else {
-            setPage(' opacity-100 mt-0')
+            setTimeout(() => {
+                setPage(' opacity-100 mt-0')
+            }, 1)
         }
 
         window.addEventListener("unload", function (e) {
