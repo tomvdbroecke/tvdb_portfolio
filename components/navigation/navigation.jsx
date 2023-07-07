@@ -8,7 +8,7 @@ import NavigationButton from './navigationButton'
 export default function Navigation(props) {
     // States
     const [firstLoad, setFirstLoad] = useState(true)
-    const [navbar, setNavbar] = useState(props.pathname == '/' ? ' opacity-0 mt-[42dvh]' : ' opacity-0 mt-4')
+    const [navbar, setNavbar] = useState(props.pathname == '/' ? ' opacity-0 mt-[44dvh]' : ' opacity-0 mt-4')
     const [selectedPage, setSelectedPage] = useState(props.pathname)
     const [navbarCheckbox, setNavbarCheckbox] = useState(false)
 
@@ -17,7 +17,7 @@ export default function Navigation(props) {
         if (firstLoad) {
             if (props.pathname == '/') {
                 setTimeout(() => {
-                    setNavbar(' opacity-100 mt-[40dvh]')
+                    setNavbar(' opacity-100 mt-[36dvh] sm:mt-[40dvh]')
                 }, 800)
             } else {
                 setTimeout(() => {
@@ -27,7 +27,7 @@ export default function Navigation(props) {
             setFirstLoad(false)
         } else {
             if (props.pathname == '/') {
-                setNavbar(' opacity-100 mt-[40dvh]')
+                setNavbar(' opacity-100 mt-[36dvh] sm:mt-[40dvh]')
             } else {
                 setNavbar(' opacity-100 mt-0')
             }
@@ -41,13 +41,13 @@ export default function Navigation(props) {
     return (
         <div className={`absolute z-20 overflow-hidden w-full pointer-events-none flex items-center justify-center transition-all duration-700 top-0 lg:top-2${navbar}`}>
             <div className='max-w-screen-lg w-full flex flex-wrap items-center justify-center'>
-                <input id="navbarCheckbox" className="hidden" type="checkbox" checked={navbarCheckbox} onChange={() => setNavbarCheckbox(!navbarCheckbox)} />
-                <label className='navbarToggle pointer-events-auto sm:hidden mt-1 mb-1.5' htmlFor="navbarCheckbox">
+                <input id="navbarCheckbox" className="hidden" type="checkbox" checked={navbarCheckbox || props.pathname == '/'} onChange={() => setNavbarCheckbox(!navbarCheckbox)} />
+                <label className={`navbarToggle pointer-events-auto sm:hidden mt-1 ${props.pathname == '/' ? ' opacity-0' : ' opacity-100'}`} htmlFor="navbarCheckbox">
                     <span className='bar top'></span>
                     <span className='bar middle'></span>
                     <span className='bar bottom'></span>
                 </label>
-                <div className='navbar pointer-events-auto transition-all duration-300 max-w-screen-lg w-full backdrop-blur sm:backdrop-blur-none !sm:opacity-100 flex flex-wrap items-center'>
+                <div className={`navbar pointer-events-auto transition-all duration-300 max-w-screen-lg w-full ${props.pathname !== '/' ? 'backdrop-blur sm:backdrop-blur-none' : ''} !sm:opacity-100 flex flex-wrap items-center`}>
                     <NavigationButton name="About" setNavbar={setNavbar} {...{ selectedPage, setSelectedPage }} {...props} />
                     <NavigationButton name="Projects" setNavbar={setNavbar} {...{ selectedPage, setSelectedPage }}  {...props} />
                     <NavigationButton name="Contact" setNavbar={setNavbar} {...{ selectedPage, setSelectedPage }}  {...props} />

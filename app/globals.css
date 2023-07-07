@@ -108,7 +108,7 @@ html, body {
     }
 
     .navbarToggle {
-        @apply w-12 h-12
+        @apply w-12 h-12 cursor-pointer
     }
 
     .bar {
@@ -121,6 +121,7 @@ html, body {
         background: rgba(255, 255, 255, 40%);
         transition: all 0.3s;
         transform-origin: left top;
+        transition-timing-function: ease-out;
     }
 
     .navbarToggle:hover .bar {
@@ -138,17 +139,19 @@ html, body {
     }
 
     #navbarCheckbox:checked ~ .navbarToggle .bar.top {
-        width: 58px;
+        margin-left: 9px;
+        width: 43px;
         transform: rotate(45deg);
     }
 
     #navbarCheckbox:checked ~ .navbarToggle .bar.middle {
+        margin-left: 25px;
         opacity: 0;
     }
 
     #navbarCheckbox:checked ~ .navbarToggle .bar.bottom {
-        width: 58px;
-        top: 48px;
+        margin-left: 9px;
+        width: 43px;
         transform: rotate(-45deg);
     }
 }
