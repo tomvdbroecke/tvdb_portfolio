@@ -5,9 +5,6 @@ import { useEffect, useState } from "react"
 import PageFrame from "@/components/pageFrame"
 import ContactForm from "@/components/contactForm"
 
-
-// TODO: Make page
-
 // Contact page
 export default function Contact() {
     // Return contact page

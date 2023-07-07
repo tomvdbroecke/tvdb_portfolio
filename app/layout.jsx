@@ -12,8 +12,6 @@ import Hero from '@/components/hero'
 // Font
 const inter = Inter({ subsets: ['latin'] })
 
-// TODO: Friendlier on mobile
-
 // Root Component
 export default function Root({ children }) {
     // States
