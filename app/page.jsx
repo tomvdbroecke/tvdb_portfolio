@@ -3,8 +3,6 @@
 // Imports
 import { useEffect } from "react"
 
-// TODO: Make page
-
 // Homepage
 export default function Home() {
     // When component is mounted

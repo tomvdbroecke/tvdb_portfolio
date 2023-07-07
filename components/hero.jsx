@@ -4,8 +4,6 @@
 import Image from "next/image"
 import { useState, useEffect } from 'react'
 
-// TODO: Make logo smaller on breakpoints
-
 // Hero component
 export default function Hero(props) {
     // States
@@ -34,7 +32,7 @@ export default function Hero(props) {
     
     // Return hero
     return (
-        <div className="absolute z-30 max-w w-full h-[40dvh] flex justify-center items-center pointer-events-none">
+        <div className="relative z-30 max-w w-full h-[40dvh] flex justify-center items-center pointer-events-none">
             <div>
                 <Image className={`mx-auto transition-all duration-700${image}`} src="/TVDB_Logo.svg" width={200} height={200} priority={true} alt='TVDB Logo'/>
             </div>

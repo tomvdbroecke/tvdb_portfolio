@@ -17,7 +17,7 @@ export default function Navigation(props) {
         if (firstLoad) {
             if (props.pathname == '/') {
                 setTimeout(() => {
-                    setNavbar(' opacity-100 mt-[36dvh]')
+                    setNavbar(' opacity-100 mt-[40dvh]')
                 }, 800)
             } else {
                 setTimeout(() => {
@@ -27,7 +27,7 @@ export default function Navigation(props) {
             setFirstLoad(false)
         } else {
             if (props.pathname == '/') {
-                setNavbar(' opacity-100 mt-[36dvh]')
+                setNavbar(' opacity-100 mt-[40dvh]')
             } else {
                 setNavbar(' opacity-100 mt-0')
             }

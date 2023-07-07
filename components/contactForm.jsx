@@ -3,7 +3,13 @@
 // Imports
 import React, { useState } from "react"
 import { Formik, Field, Form, ErrorMessage } from "formik"
+import { MailerSend, EmailParams, Sender, Recipient } from "mailersend"
 import * as Yup from "yup"
+
+// Initialize MailerSend
+const mailerSend = new MailerSend({
+    apiKey: process.env.MAILERSEND_API_KEY
+})
 
 // Initial values for contact form
 const initialValues = {
@@ -29,8 +35,17 @@ export default function ContactForm() {
     const [sentNotification, setSentNotification] = useState(false)
 
     // Contact form submit function
-    const onSubmit = (values) => {
-        // TODO: Actually send the email
+    const onSubmit = async (values) => {
+        const sentFrom = new Sender(values.email, values.name)
+        const recipients = [ new Recipient("tom@tvdb.me", "Tom van den Broecke") ]
+        const emailParams = new EmailParams()
+            .setFrom(sentFrom)
+            .setTo(recipients)
+            .setSubject(values.subject)
+            .setText(values.message)
+        var result = await mailerSend.email.send(emailParams)
+        console.log(result)
+
         setSentNotification("Your message was sent successfully!")
     }
 
@@ -63,7 +78,7 @@ export default function ContactForm() {
                 </div>
 
                 <div className="overflow-hidden flex">
-                    <button disabled={sentNotification} className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
+                    <button  className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
                     <div className={`px-4 mt-2 mr-2 bg-green-300/20 text-green-300 transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
                         {sentNotification}
                     </div>

@@ -34,7 +34,7 @@ export default function Galaxy(props) {
             })
             setTargetCameraTargetPosition({
                 x: 0,
-                y: 3.5,
+                y: 4,
                 z: 0
             })
         }
@@ -73,7 +73,7 @@ export default function Galaxy(props) {
             })
             setTargetCameraTargetPosition({
                 x: 0,
-                y: 3.5,
+                y: 4,
                 z: 0
             })
         }

@@ -5,8 +5,6 @@ import Image from "next/image"
 import ImageTag from "@/components/imageTag"
 import PageFrame from "@/components/pageFrame"
 
-// TODO: Fix scrollbar on animate in
-
 // Projects page
 export default function Projects() {
     // Return projects page
