@@ -5,7 +5,6 @@ import { useEffect, useState } from "react"
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
-// TODO: Cleanup
 
 // Galaxy component
 export default function Galaxy(props) {
@@ -176,9 +175,9 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
     setInitialized(true)
 
     // Star material and params
-    var star = new THREE.TextureLoader().load('star.png') // make blended?
+    var star = new THREE.TextureLoader().load('star.png')
     const params = {
-        count: 150000, // was 300k
+        count: 150000,
         size: 0.01,
         radius: 10,
         branches: 2,
@@ -186,7 +185,7 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
         randomness: 1,
         randomnessPower: 1,
         backgroundColor: "#000712",
-        mainColor: "#72ab92", // for 300k: #588571
+        mainColor: "#72ab92",
         insideColor: "#ff6030",
         outsideColor: "#1b3984"
     }
@@ -194,9 +193,6 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
     // Setup canvas and scene
     const canvas = document.getElementById("GalaxyCanvas")
     const scene = new THREE.Scene()
-    //const backgroundTexture = new THREE.TextureLoader().load('background_static.jpg')
-    //backgroundTexture.colorSpace = THREE.SRGBColorSpace
-    //scene.background = backgroundTexture
     scene.background = new THREE.Color(params.backgroundColor)
 
     // Setup galaxy geometry
@@ -261,15 +257,14 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
 
         // Materials
         material = new THREE.PointsMaterial({
-            color: params.mainColor, // #6359ee | #ffffff?
+            color: params.mainColor,
             size: params.size,
             sizeAttenuation: true,
             depthWrite: false,
             blending: THREE.AdditiveBlending,
             vertexColors: true,
             map: star,
-            transparent: true, // If skybox, set this to true || otherwise false
-            //renderOrder: 999 // Render on top of skybox
+            transparent: true
         })
         points = new THREE.Points(geometry, material)
         scene.add(points)
@@ -311,10 +306,8 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
 
     // Controls
     const controls = new OrbitControls(camera, canvas)
-    //controls.autoRotate = true
     controls.enabled = false
     controls.target = new THREE.Vector3(0, 0, 0)
-    //controls.enableDamping = true
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({
@@ -323,18 +316,7 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-    // Skybox [KIND OF A PERFORMANCE HIT]
-    const loadSkybox = async () => {
-        const skyboxGeometry = new THREE.SphereGeometry(50, 60, 40)
-        skyboxGeometry.scale(-1, 1, 1)
-        const skyboxTexture = new THREE.TextureLoader().load('background.jpg')
-        skyboxTexture.colorSpace = THREE.SRGBColorSpace
-        const skyboxMaterial = new THREE.MeshBasicMaterial({ map: skyboxTexture })
-        const skyboxMesh = new THREE.Mesh(skyboxGeometry, skyboxMaterial)
-        scene.add(skyboxMesh)
-    }
-    //loadSkybox()
-
+    // Set react state and start ticking
     setGalaxyScene({
         scene: scene,
         camera: camera,
@@ -342,6 +324,5 @@ const initializeGalaxyScene = (setInitialized, setGalaxyScene, setTicker) => {
         controls: controls,
         geometry: geometry
     })
-    console.log(geometry)
     setTicker(1)
 }

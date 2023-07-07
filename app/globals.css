@@ -7,7 +7,7 @@ html, body {
     color: #edfbff;
 }
 
-/* .Navigation Button */
+/* .Navigation */
 .navButtonLink:first-child {
     margin-left: 0px;
 }
@@ -25,7 +25,6 @@ html, body {
     padding: 0;
     box-sizing: content-box;
     border: 1px solid transparent;
-    transition: 0.2s all;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
@@ -96,6 +95,62 @@ html, body {
     bottom: 4px;
     right: 4px;
     border-color: #edfbff;
+}
+
+/* Navigation Collapse */
+@media only screen and (max-width: 640px) {
+    .navbar {
+        @apply opacity-0 pointer-events-none
+    }
+
+    #navbarCheckbox:checked ~ .navbar {
+        @apply opacity-100 pointer-events-auto
+    }
+
+    .navbarToggle {
+        @apply w-12 h-12
+    }
+
+    .bar {
+        position: absolute;
+        top: 8px;
+        margin-left: 4px;
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: rgba(255, 255, 255, 40%);
+        transition: all 0.3s;
+        transform-origin: left top;
+    }
+
+    .navbarToggle:hover .bar {
+        background: rgba(255, 255, 255, 80%);
+    }
+
+    .bar.middle {
+        top: 23px;
+        opacity: 1;
+    }
+
+    .bar.bottom {
+        top: 38px;
+        transform-origin: left bottom;
+    }
+
+    #navbarCheckbox:checked ~ .navbarToggle .bar.top {
+        width: 58px;
+        transform: rotate(45deg);
+    }
+
+    #navbarCheckbox:checked ~ .navbarToggle .bar.middle {
+        opacity: 0;
+    }
+
+    #navbarCheckbox:checked ~ .navbarToggle .bar.bottom {
+        width: 58px;
+        top: 48px;
+        transform: rotate(-45deg);
+    }
 }
 
 /* LOADER */
@@ -197,4 +252,21 @@ html, body {
     border-bottom: 1px solid #edfbff;
     border-right: 1px solid #edfbff;
     border-color: #edfbff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 0px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+  
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
