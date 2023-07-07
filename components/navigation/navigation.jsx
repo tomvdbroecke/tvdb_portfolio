@@ -42,7 +42,7 @@ export default function Navigation(props) {
         <div className={`absolute z-20 overflow-hidden w-full pointer-events-none flex items-center justify-center transition-all duration-700 top-0 lg:top-2${navbar}`}>
             <div className='max-w-screen-lg w-full flex flex-wrap items-center justify-center'>
                 <input id="navbarCheckbox" className="hidden" type="checkbox" checked={navbarCheckbox || props.pathname == '/'} onChange={() => setNavbarCheckbox(!navbarCheckbox)} />
-                <label className={`navbarToggle pointer-events-auto sm:hidden mt-1 ${props.pathname == '/' ? ' opacity-0' : ' opacity-100'}`} htmlFor="navbarCheckbox">
+                <label className={`navbarToggle pointer-events-auto sm:hidden mt-1.5 mb-1${props.pathname == '/' ? ' opacity-0' : ' opacity-100'}`} htmlFor="navbarCheckbox">
                     <span className='bar top'></span>
                     <span className='bar middle'></span>
                     <span className='bar bottom'></span>

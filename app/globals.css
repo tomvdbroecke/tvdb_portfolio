@@ -113,7 +113,7 @@ html, body {
 
     .bar {
         position: absolute;
-        top: 8px;
+        top: 12px;
         margin-left: 4px;
         display: block;
         width: 40px;
@@ -129,12 +129,12 @@ html, body {
     }
 
     .bar.middle {
-        top: 23px;
+        top: 27px;
         opacity: 1;
     }
 
     .bar.bottom {
-        top: 38px;
+        top: 42px;
         transform-origin: left bottom;
     }
 
