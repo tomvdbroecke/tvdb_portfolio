@@ -15,7 +15,7 @@ export default function Contact() {
         <PageFrame>
             <h1 className="text-4xl font-bold p-4">Contact</h1>
             <div className="text-lg px-4">
-                <p>Get in touch for all your software development needs or if you're interested in working together!</p>
+                <p>Get in touch for all your software development needs or if you&apos;re interested in working together!</p>
             </div>
             <div className="p-4">
                 <ContactForm />

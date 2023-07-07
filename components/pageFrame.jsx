@@ -9,7 +9,7 @@ export default function PageFrame({ children }) {
     const [page, setPage] = useState(' opacity-0 mt-20')
 
     // When component is mounted
-    useEffect(() => {
+    useEffect((setPage) => {
         const loaded = localStorage.getItem('loaded')
         localStorage.setItem('loaded', true)
 

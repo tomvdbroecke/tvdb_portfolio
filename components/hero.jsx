@@ -13,7 +13,7 @@ export default function Hero(props) {
     const [image, setImage] = useState(' opacity-0 mt-20')
 
     // When component is mounted, and on pathname change
-    useEffect(() => {
+    useEffect((firstLoad) => {
         if (firstLoad) {
             if (props.pathname == '/') {
                 setTimeout(() => {
