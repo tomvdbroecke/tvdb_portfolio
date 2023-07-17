@@ -83,7 +83,7 @@ export default function ContactForm() {
                     <div className={`px-4 mt-2 mr-2 ${sentNotification && sentNotification.includes('could not') ? '!bg-red-300/20 !text-red-300' : sentNotification && sentNotification.includes('was sent') ? '!bg-green-300/20 !text-green-300' : null} bg-white-300/20 text-white-300 transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
                         {sentNotification}
                     </div>
-                    <LoadingIcons.TailSpin className={`absolute mt-[0.7rem] left-[6.4rem] w-8 h-8${submitting ? ' block' : ' hidden'}`} />
+                    <LoadingIcons.TailSpin strokeOpacity={.4} speed={.75} className={`absolute mt-[0.7rem] left-[6.4rem] w-8 h-8${!submitting ? ' block' : ' hidden'}`} />
                 </div>
             </Form>
         </Formik>
