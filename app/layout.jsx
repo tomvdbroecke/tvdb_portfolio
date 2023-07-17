@@ -8,6 +8,7 @@ import Galaxy from "@/components/galaxy"
 import InitialLoader from '@/components/initialLoader'
 import Navigation from '@/components/navigation/navigation'
 import Hero from '@/components/hero'
+import Gtag from '@/components/gtag'
 
 // Font
 const inter = Inter({ subsets: ['latin'] })
@@ -31,6 +32,7 @@ export default function Root({ children }) {
                 <Navigation {...{ pathname }} />
                 {children}
                 <InitialLoader />
+                <Gtag />                
             </body>
         </html>
     )
