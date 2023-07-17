@@ -3,13 +3,9 @@
 // Imports
 import React, { useState } from "react"
 import { Formik, Field, Form, ErrorMessage } from "formik"
-import { MailerSend, EmailParams, Sender, Recipient } from "mailersend"
+import emailjs from '@emailjs/browser'
 import * as Yup from "yup"
-
-// Initialize MailerSend
-const mailerSend = new MailerSend({
-    apiKey: process.env.MAILERSEND_API_KEY
-})
+import LoadingIcons from "react-loading-icons"
 
 // Initial values for contact form
 const initialValues = {
@@ -33,23 +29,25 @@ const validationSchema = Yup.object({
 export default function ContactForm() {
     // States
     const [sentNotification, setSentNotification] = useState(false)
+    const [submitting, setSubmitting] = useState(false)
 
     // Contact form submit function
     const onSubmit = async (values) => {
-        const sentFrom = new Sender(values.email, values.name)
-        const recipients = [ new Recipient("tom@tvdb.me", "Tom van den Broecke") ]
-        const emailParams = new EmailParams()
-            .setFrom(sentFrom)
-            .setTo(recipients)
-            .setSubject(values.subject)
-            .setText(values.message)
-
+        setSubmitting(true)
         try {
-            var result = await mailerSend.email.send(emailParams)
+            const templateObject = {
+                name: values.name,
+                email: values.email,
+                subject: values.subject,
+                message: values.message
+            }
+            await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID, 'template_xj8jgkf', templateObject, process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY)
             setSentNotification("Your message was sent successfully!")
         } catch (error) {
+            console.log(error)
             setSentNotification("Message could not be sent, please try again later.")
         }
+        setSubmitting(false)
     }
 
     // Return contact form
@@ -81,10 +79,11 @@ export default function ContactForm() {
                 </div>
 
                 <div className="overflow-hidden flex">
-                    <button  className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
+                    <button disabled={sentNotification} className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
                     <div className={`px-4 mt-2 mr-2 ${sentNotification && sentNotification.includes('could not') ? '!bg-red-300/20 !text-red-300' : sentNotification && sentNotification.includes('was sent') ? '!bg-green-300/20 !text-green-300' : null} bg-white-300/20 text-white-300 transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
                         {sentNotification}
                     </div>
+                    <LoadingIcons.TailSpin className={`absolute mt-[0.7rem] left-[6.4rem] w-8 h-8${submitting ? ' block' : ' hidden'}`} />
                 </div>
             </Form>
         </Formik>
