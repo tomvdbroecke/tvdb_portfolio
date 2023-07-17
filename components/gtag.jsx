@@ -7,7 +7,7 @@ export default function Gtag() {
     return (
         <>
             <Script async src="https://www.googletagmanager.com/gtag/js?id=G-NCGX0GV8GP"></Script>
-            <Script>
+            <Script id="gtag">
                 {`
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
