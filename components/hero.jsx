@@ -32,7 +32,7 @@ export default function Hero(props) {
     
     // Return hero
     return (
-        <div className="relative z-10 max-w w-full h-[40dvh] flex justify-center items-center pointer-events-none">
+        <div className="absolute z-10 max-w w-full h-[40dvh] flex justify-center items-center pointer-events-none">
             <div>
                 <Image className={`mx-auto transition-all duration-700${image}`} src="/TVDB_Logo.svg" width={200} height={200} priority={true} alt='TVDB Logo'/>
             </div>

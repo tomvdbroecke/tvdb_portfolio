@@ -59,30 +59,30 @@ export default function ContactForm() {
             validationSchema={validationSchema}
             onSubmit={onSubmit}
         >
-            <Form autocomplete="off">
+            <Form>
                 <div className="relative">
                     <Field className="bg-white/5 p-2 rounded-lg w-full transition-all duration-200 outline-0 focus:bg-white/10 disabled:cursor-not-allowed" disabled={sentNotification} placeholder="Name" type="text" id="name" name="name" />
-                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400" name="name" component="div" />
+                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400 pointer-events-none" name="name" component="div" />
                 </div>
 
                 <div className="relative mt-2">
                     <Field className="bg-white/5 p-2 rounded-lg w-full transition-all duration-200 outline-0 focus:bg-white/10 disabled:cursor-not-allowed" disabled={sentNotification} placeholder="Email" type="email" id="email" name="email" />
-                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400" name="email" component="div" />
+                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400 pointer-events-none" name="email" component="div" />
                 </div>
 
                 <div className="relative mt-2">
                     <Field className="bg-white/5 p-2 rounded-lg w-full transition-all duration-200 outline-0 focus:bg-white/10 disabled:cursor-not-allowed" disabled={sentNotification} placeholder="Subject" type="text" id="subject" name="subject" />
-                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400" name="subject" component="div" />
+                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400 pointer-events-none" name="subject" component="div" />
                 </div>
 
                 <div className="relative mt-2">
                     <Field className="bg-white/5 p-2 rounded-lg w-full transition-all duration-200 outline-0 focus:bg-white/10 disabled:cursor-not-allowed" disabled={sentNotification} placeholder="Message" as="textarea" id="message" name="message" />
-                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400" name="message" component="div" />
+                    <ErrorMessage className="absolute top-0 right-0 p-2 text-rose-400 pointer-events-none" name="message" component="div" />
                 </div>
 
                 <div className="overflow-hidden flex">
                     <button  className="px-4 mt-2 mr-2 bg-white bg-opacity-20 hover:bg-opacity-40 transition-all duration-300 p-2 rounded-lg disabled:cursor-not-allowed disabled:bg-opacity-10" type="submit">Send</button>
-                    <div className={`px-4 mt-2 mr-2 ${sentNotification && sentNotification.includes('could not') ? 'bg-red-300/20 text-red-300' : 'bg-green-300/20 text-green-300'} transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
+                    <div className={`px-4 mt-2 mr-2 ${sentNotification && sentNotification.includes('could not') ? '!bg-red-300/20 !text-red-300' : sentNotification && sentNotification.includes('was sent') ? '!bg-green-300/20 !text-green-300' : null} bg-white-300/20 text-white-300 transition-all duration-300 p-2 rounded-lg${sentNotification ? ' opacity-100' : ' opacity-0'}`}>
                         {sentNotification}
                     </div>
                 </div>

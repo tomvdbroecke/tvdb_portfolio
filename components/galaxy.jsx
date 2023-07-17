@@ -53,9 +53,9 @@ export default function Galaxy(props) {
         // If on any other page than homepage, zoom into galaxy
         if (props.pathname !== '/') {
             setTargetCameraPosition({
-                x: 1.5,
-                y: 1.5,
-                z: 1.5
+                x: 2.5,
+                y: 2.5,
+                z: 2.5
             })
             setTargetCameraTargetPosition({
                 x: 0,
