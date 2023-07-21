@@ -1,9 +1,12 @@
-'use client'
-
 // Imports
 import Image from "next/image"
 import ImageTag from "@/components/imageTag"
 import PageFrame from "@/components/pageFrame"
+
+// Set meta description for page
+export const metadata = {
+    description: "Here are some projects I've completed over the past couple of years.",
+}
 
 // Projects page
 export default function Projects() {

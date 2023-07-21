@@ -1,9 +1,11 @@
-'use client'
-
 // Imports
-import { useEffect, useState } from "react"
 import PageFrame from "@/components/pageFrame"
 import ContactForm from "@/components/contactForm"
+
+// Set meta description for page
+export const metadata = {
+    description: "Get in touch for all your software development needs or if you're interested in working together!",
+}
 
 // Contact page
 export default function Contact() {

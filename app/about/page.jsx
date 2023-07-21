@@ -1,8 +1,11 @@
-'use client'
-
 // Imports
 import ImageTag from "@/components/imageTag"
 import PageFrame from "@/components/pageFrame"
+
+// Set meta description for page
+export const metadata = {
+    description: "Hi there! I'm Tom van den Broecke, a software developer based in the Netherlands. My expertise lies in full stack web development, where I thrive in creating seamless user experiences and robust server infrastructures.",
+}
 
 // About page
 export default function About() {

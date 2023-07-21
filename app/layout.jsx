@@ -24,7 +24,6 @@ export default function Root({ children }) {
             <head>
                 <title>Tom van den Broecke</title>
                 <meta name="author" content="Tom van den Broecke"/>
-                <meta name="description" content="I'm Tom van den Broecke, a software developer based in the Netherlands. My expertise lies in full stack web development, where I thrive in creating seamless user experiences and robust server infrastructures."/>
                 <meta name="keywords" content="Software Engineer, Sofware Developer, Full Stack, NextJs, React, Express, Programming"/>
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
