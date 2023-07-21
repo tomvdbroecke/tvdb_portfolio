@@ -123,7 +123,7 @@ const followTargetCameraPosition = (params, galaxyScene, targetCameraPosition) =
     const pos = galaxyScene.camera.position
     const targetPosition = new THREE.Vector3(targetCameraPosition.x, targetCameraPosition.y, targetCameraPosition.z)
 
-    const maxDistance = 6
+    const maxDistance = 12
     const distance = targetPosition.distanceTo(pos)
     const t = Math.min(1, distance / maxDistance)
 
@@ -138,7 +138,7 @@ const followTargetCameraTargetPosition = (params, galaxyScene, targetCameraTarge
     const pos = galaxyScene.controls.target
     const targetPosition = new THREE.Vector3(targetCameraTargetPosition.x, targetCameraTargetPosition.y, targetCameraTargetPosition.z)
 
-    const maxDistance = 6
+    const maxDistance = 12
     const distance = targetPosition.distanceTo(pos)
     const t = Math.min(1, distance / maxDistance)
 
